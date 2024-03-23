@@ -1,0 +1,94 @@
+body {
+    min-height:100vh;
+    min-width:100vw;
+    background-color:lightblue;
+    color:black;
+}
+
+h1 {
+    text-align: center;
+    font-weight: 300;
+    font-size: xx-large;
+}
+
+p {
+    text-align: center;
+    font-size: large;
+}
+
+.actions {
+    display: flex;
+    justify-content: center;
+}
+
+.actions button {
+    margin: 2%;
+    padding: 8px 16px;
+    font-size: 30px;
+    border-radius: 10px;
+    background-color: blue;
+    color:white;
+}
+
+.actions button:disabled,
+.actions button[disabled]{
+  background-color:gray;
+  color: lightgray;
+}
+
+.actions input {
+    width: 5%;
+}
+
+.grid-container {
+    display: grid;
+    justify-content: center;
+    gap: min(2vw,2vh);
+    grid-template-columns: repeat(4, min(20vw,20vh));
+    grid-template-rows: repeat(4, min(20vw,20vh));
+}
+
+.card {
+    height: min(20vw,20vh);
+    width: min(20vw,20vh);
+    border-radius: min(2vw,2vh);
+    background-color: white;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: all 0.5s ease-in-out;
+}
+
+.front-image {
+    width: min(18vw,18vh);
+    height: min(18vw,18vh);
+}
+
+.card.flipped {
+    transform: rotateY(180deg);
+}
+
+.front,
+.back {
+    backface-visibility: hidden;
+    position: absolute;
+    border-radius: min(2vw,2vh);
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.card .front {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: rotateY(180deg);
+}
+
+.card .back {
+    background-image: url("data:image/svg+xml,<svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' patternUnits='userSpaceOnUse' width='69.283' height='40' patternTransform='scale(2) rotate(0)'><rect x='0' y='0' width='100%' height='100%' fill='hsla(165, 27%, 77%, 1)'/><path d='M46.189-20L57.736 0M46.189 20l11.547 20m-46.189 0l11.547 20M11.547 0l11.547 20m40.415 30H40.415M28.868 30H5.774m23.094-40H5.774m57.735 20H40.415m0 20L28.868 50m11.547-60L28.868 10m46.188 0L63.509 30M5.774 10L-5.773 30m75.056 10H46.189L34.64 20 46.19 0h23.094C73.13 6.667 76.98 13.333 80.83 20zM57.736 60H34.64L23.094 40l11.547-20h23.095c3.848 6.667 7.698 13.333 11.547 20L57.736 60zm0-40H34.64L23.094 0l11.547-20h23.095L69.283 0c-3.87 6.7-8.118 14.06-11.547 20zM34.64 60H11.547L0 40l11.547-20h23.094L46.19 40 34.64 60zm0-40H11.547L0 0l11.547-20h23.094L46.19 0 34.64 20zM23.094 40H0l-5.773-10-5.774-10L0 0h23.094l11.547 20-11.547 20z'  stroke-width='1' stroke='hsla(284, 48%, 57%, 1)' fill='none'/></pattern></defs><rect width='800%' height='800%' transform='translate(0,0)' fill='url(%23a)'/></svg>");
+    background-position: center center;
+    background-size: cover;
+    backface-visibility: hidden;
+}
+
